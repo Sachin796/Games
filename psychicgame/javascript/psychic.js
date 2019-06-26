@@ -13,16 +13,13 @@ if(word===event.key)
 console.log(word);
 correct++;
 alert("Congragulations the answer is correct !!!")
-// data.push("Your word guess of "+event.key+" is correct");
-document.getElementById('allguess').append("Your word guess of "+event.key+" is correct"+"\n");
+document.getElementById('allguess').innerHTML=(`<span style='color:yellowgreen'>Your word guess of ${event.key} is correct </span>`);
 document.getElementById('wins').innerHTML = correct;
 document.getElementById('loses').innerHTML = incorrect;
 document.getElementById('guess').append = guess;
-//alldata();
 }
 else
 {
-
 incorrect++;
 if(guess>=1)
 {
@@ -34,26 +31,14 @@ alert("Sorry no more gusses left");
 return ;
 }
 alert("Sorry the answer is incorrect :( ")
-//data.push("Your word guess of "+event.key+" is incorrect \n");
-
 document.getElementById('wins').innerHTML = correct;
 document.getElementById('loses').innerHTML = incorrect;
 document.getElementById('guessleft').innerHTML = guess;
-document.getElementById('allguess').append("Your word guess of "+event.key+" is incorrect"+"\n");
-//alldata();
+document.getElementById('allguess').append(event.key+" , ");
 }
 function alldata()
 {
 var dummy="";
-//     data.forEach(function(element,i)
-//     {
-//       //  console.log(element);
-//         dummy+=element;
-//         document.getElementById('allguess').innerHTML="";
-// document.getElementById('allguess').innerHTML+=element;
-// console.log(element);
-//     })
-
 for(var i=0;i<data.length;i++)
 {
 document.getElementById('allguess').innerHTML=data+"<br><br>";
