@@ -14,32 +14,40 @@ function generate() {
     var dummy = [];
     dummy = randomword.split('');
     dummy1 = randomword.toLowerCase();
-
-
     data = [];
     document.getElementById("blanks").innerHTML = "";
 
+    //Call all the  relative functions below
+    blanksfill();
+    imagedisplay(dummy1);
+    gameplay(count, success);
+}
+
+function blanksfill() {
     for (i = 0; i < randomword.length; i++) {
         data.push("_")
         document.getElementById("blanks").append("_ \n");
     }
+}
 
+function imagedisplay(dummy1) {
     console.log(dummy1);
     if (dummy1 === "batmen") {
-        document.getElementById("display").innerHTML = "<img src='/Games/Word_game/images/batman.jpg'></img>";
+        document.getElementById("display").innerHTML = "<img src='images/batman.jpg'></img>";
     } else if (dummy1 === "superman") {
-        document.getElementById("display").innerHTML = "<img src='/Games/Word_game/images/superman.jpg'></img>";
+        document.getElementById("display").innerHTML = "<img src='images/superman.jpg'></img>";
     } else if (dummy1 === "spiderman") {
-        document.getElementById("display").innerHTML = "<img src='/Games/Word_game/images/spiderman.jpg'></img>";
+        document.getElementById("display").innerHTML = "<img src='images/spiderman.jpg'></img>";
     } else if (dummy1 === "hulk") {
-        document.getElementById("display").innerHTML = "<img src='/Games/Word_game/images/hulk.jpg'></img>";
+        document.getElementById("display").innerHTML = "<img src='images/hulk.jpg'></img>";
     } else if (dummy1 === "thor") {
-        document.getElementById("display").innerHTML = "<img src='/Games/Word_game/images/thor.jpg'></img>";
+        document.getElementById("display").innerHTML = "<img src='images/thor.jpg'></img>";
     }
+}
+
+function gameplay(count, success) {
 
     document.onkeyup = function keypress(event) {
-        console.log(event.key)
-        console.log(data);
         breakloop: if (count == 0) {
             alert("Sorry You lost...  no more guesses left... !!! ");
             return;
